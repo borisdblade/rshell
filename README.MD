@@ -14,27 +14,27 @@ List names:
 
 **RShell setup**
 
-**Install pip3**
+Install pip3
 
-MAC
+Mac:
 
     brew install python3
 
-LINUX deb
+Linux deb:
 
     sudo apt install python3
 
-**Install aws client**
+Install aws client
  
-MAC
+Mac
 
     pip3 install awscli
 
-LINUX deb
+Linux deb
 
     apt install awscli 
 
-**Edit .aws/config, or** 
+Edit .aws/config, or
 
     aws-configure
 
@@ -45,28 +45,28 @@ LINUX deb
     aws_secret_access_key = <secret_access_key>
     region = <your-aws-region>
 
-**chmod**
+chmod
 
      chmod 600 $HOME/.aws/config
 
-**export environment**
+export environment
 
      export AWS_CONFIG_FILE=$HOME/.aws/config
 
-**copy rsh.sh to your Home Directory and make it executable**
+copy rsh.sh to your Home Directory and make it executable
 
     sudo chmod +x rsh.sh
 
-**copy the executable to /usr/local/bin**
+copy the executable to /usr/local/bin
 
     sudo cp rsh.sh /usr/local/bin/rsh
 
 
-**Run RShell**
+Run RShell
 
     rsh <instance_name>
 
-**List instances**
+List instances
 
     rsh list
 
