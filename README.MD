@@ -1,4 +1,3 @@
-
 Rshell is a tool used to retrieve AWS instances ips by instance name and
 connects to selected instance via ssh.
 
@@ -6,93 +5,88 @@ It is useful when your instances are behind AWS Load Balancer.
 
 Connect:
 
-<code>~$ rsh <instance_name></code>
+    rsh <instance_name>
 
 List names:
 
-<code>~$ rsh list </code>
+    rsh list
 
 
-RShell setup
+**RShell setup**
 
-# `install pip3`
--**MAC**-
+**Install pip3**
 
-<code>~$ brew install python3</code>
+MAC
 
--**LINUX deb**-
+    brew install python3
 
-<code>~$ sudo apt install python3</code>
+LINUX deb
 
-# `install aws client`
--**MAC**-
+    sudo apt install python3
 
-<code>~$ pip3 install awscli</code>
+**Install aws client**
+ 
+MAC
 
--**LINUX deb**-
+    pip3 install awscli
 
-<code>~$ apt install awscli</code> 
+LINUX deb
 
- `edit .aws/config `
-Or 
+    apt install awscli 
 
-<code>~$ aws-configure</code>
+**Edit .aws/config, or** 
 
+    aws-configure
 
-[default]
-<br>
-<code>
-aws_access_key_id = <access_key_id>
-</code><br>
-<code> 
-aws_secret_access_key = <secret_access_key>
-</code><br>
-<code>
-region = <your-aws-region>
-</code>
+.aws/config example
+   
+    [default]
+    aws_access_key_id = <access_key_id> 
+    aws_secret_access_key = <secret_access_key>
+    region = <your-aws-region>
 
- `chmod`
+**chmod**
 
-<code>~$ chmod 600 $HOME/.aws/config</code>
+     chmod 600 $HOME/.aws/config
 
- `export environment`
+**export environment**
 
-<code>~$ export AWS_CONFIG_FILE=$HOME/.aws/config</code>
+     export AWS_CONFIG_FILE=$HOME/.aws/config
 
- `copy rsh.sh to your Home Directory and make it executable`
+**copy rsh.sh to your Home Directory and make it executable**
 
-<code>~$ sudo chmod +x rsh.sh</code>
+    sudo chmod +x rsh.sh
 
- `copy the executable to /usr/local/bin`
+**copy the executable to /usr/local/bin**
 
-<code>~$ sudo cp rsh.sh /usr/local/bin/rsh</code>
+    sudo cp rsh.sh /usr/local/bin/rsh
 
 
- `run the RShell`
+**Run RShell**
 
-<code>~$ rsh <instance_name></code>
+    rsh <instance_name>
 
- `List instances`
+**List instances**
 
-<code>~$ rsh list </code>
+    rsh list
 
 
 **THAT IS IT! ENJOY...**
 
 
- `Additional info `
+**Additional info**
 
- `aws query ip address for specific instance name`
+aws query ip address for specific instance name
 
-<code>aws ec2 describe-instances --filters 'Name=tag:Name,Values=<instance-name>' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'</code>
+    aws ec2 describe-instances --filters 'Name=tag:Name,Values=<instance-name>' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'
 
- `command example for extracting instance ip`
+command example for extracting instance ip
 
-<code>aws ec2 describe-instances --filters 'Name=tag:Name,Values=rb-v2-api' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'</code>
+    aws ec2 describe-instances --filters 'Name=tag:Name,Values=rb-v2-api' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'
 
- `for later ( generate ssh config`
+for later :: generate ssh config
 
-<code>aws ec2 describe-instances --output text   --query 'Reservations[].Instances[].[Tags[?Key==`Name`,Values==`rb-v2-api`] | [0].Value, PublicIpAddress]'</code>
+    aws ec2 describe-instances --output text   --query 'Reservations[].Instances[].[Tags[?Key==`Name`,Values==`rb-v2-api`] | [0].Value, PublicIpAddress]'
 
 
-<code>aws ec2 describe-instances --filters 'Name=tag:Name,Values=dev-server-*' --output text --query 'Reservations[*].Instances[*].InstanceId'</code>
+    aws ec2 describe-instances --filters 'Name=tag:Name,Values=dev-server-*' --output text --query 'Reservations[*].Instances[*].InstanceId'
