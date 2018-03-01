@@ -14,7 +14,7 @@ List names:
 
 **RShell setup**
 
-Install pip3
+install pip3
 
 Mac:
 
@@ -24,17 +24,17 @@ Linux deb:
 
     sudo apt install python3
 
-Install aws client
+install aws client
  
-Mac
+Mac:
 
     pip3 install awscli
 
-Linux deb
+Linux deb:
 
     apt install awscli 
 
-Edit .aws/config, or
+edit .aws/config, or
 
     aws-configure
 
