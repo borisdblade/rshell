@@ -53,7 +53,7 @@ export environment
 
      export AWS_CONFIG_FILE=$HOME/.aws/config
 
-copy rsh.sh to your Home Directory and make it executable
+download rsh.sh and make it executable
 
     sudo chmod +x rsh.sh
 
