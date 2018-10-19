@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-PEM_PATH=~/.ssh/aws-csa.pem
-SOURCE_PATH=/Users/gorankrgovic1/Sites/sh
+PEM_PATH=""
+SOURCE_PATH=""
 
 SETUP_ACTIVE=0
 

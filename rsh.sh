@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #set -x
-SOURCE_PATH=/Users/gorankrgovic1/Sites/sh
+SOURCE_PATH=""
 
 # Grab all the passed arguments
 ARGS="$@"

@@ -3,8 +3,8 @@
 SP_LINE=""
 PP_LINE=""
 
-PEM_PATH=~/.ssh/aws-csa.pem
-SOURCE_PATH=/Users/gorankrgovic1/Sites/sh
+PEM_PATH=""
+SOURCE_PATH=""
 
 SCRIPT_PATH="/usr/local/bin/rsh"
 
