@@ -1,20 +1,11 @@
-Rshell is a tool used to retrieve AWS instances ips by instance name and
-connects to selected instance via ssh.
+Rshell is a tool used to retrieve AWS instances ips by instance name, connect to them,
+execute custom or predefined commands on instances...
 
 It is useful when your instances are behind AWS Load Balancer.
 
-Connect:
-
-    rsh <instance_name>
-
-List names:
-
-    rsh list
-
-
 **RShell setup**
 
-install pip3
+## install pip3
 
 Mac:
 
@@ -24,7 +15,7 @@ Linux deb:
 
     sudo apt install python3
 
-install aws client
+##Install aws client
  
 Mac:
 
@@ -34,7 +25,7 @@ Linux deb:
 
     apt install awscli 
 
-edit .aws/config, or
+Edit .aws/config, or
 
     aws-configure
 
@@ -45,31 +36,46 @@ edit .aws/config, or
     aws_secret_access_key = <secret_access_key>
     region = <your-aws-region>
 
-chmod
+Chmod
 
      chmod 600 $HOME/.aws/config
 
-export environment
+Export environment
 
      export AWS_CONFIG_FILE=$HOME/.aws/config
 
-download rsh.sh and make it executable
+## Deployment
+Download or clone project, and make main file executable
 
     sudo chmod +x rsh.sh
 
-copy the executable to /usr/local/bin
+## Setup RSH
+Run the setup from the root of project directory
 
-    sudo cp rsh.sh /usr/local/bin/rsh
+    sh setup.sh
 
-
-Run RShell
-
-    rsh <instance_name>
-
+## Options
 List instances
 
     rsh list
+    
+Connect:
 
+    rsh <instance_name>
+
+Run custom commands:
+
+    rsh <instance_name> -custom="cd /var/www/example; touch hello.php;"
+
+Run predefined commands:
+
+    rsh <instance_name> -git
+    
+Predefined commands:
+    
+    -git        # git pull
+    -composer   # composer install; composer du
+And more to come!
 
 **THAT IS IT! ENJOY...**
 
