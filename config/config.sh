@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 PEM_PATH=""
-SOURCE_PATH=""
 
 SETUP_ACTIVE=0
 

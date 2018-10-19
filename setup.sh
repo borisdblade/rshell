@@ -11,7 +11,8 @@ SCRIPT_PATH="/usr/local/bin/rsh"
 # Copy main script file to executables folder (SCRIPT_PATH)
 installScript()
 {
-    cp main.sh "$SCRIPT_PATH"
+    sudo cp -f rsh.sh "$SCRIPT_PATH"
+    sudo chmod +x "$SCRIPT_PATH"
 }
 
 addPemPath()
@@ -33,7 +34,7 @@ addSourcePath()
     then
         SOURCE_PATH=$(pwd)
         SOURCE_PATH="SOURCE_PATH=$SOURCE_PATH"
-        awk 'NR=='"$SP_LINE"'{$0="'"$SOURCE_PATH"'"}1' main.sh > main.tmp && mv main.tmp main.sh
+        awk 'NR=='"$SP_LINE"'{$0="'"$SOURCE_PATH"'"}1' rsh.sh > rsh.tmp && mv rsh.tmp rsh.sh
         awk 'NR=='"$SP_LINE_ORG"'{$0="'"$SOURCE_PATH"'"}1' setup.sh > setup.tmp && mv setup.tmp setup.sh
     fi
 }
@@ -48,7 +49,7 @@ addConfigLines()
 # Set path line numbers from config file
 defineConfigLines()
 {
-    SP_LINE=$(awk '/SOURCE_PATH/{ print NR; exit }' ./main.sh)
+    SP_LINE=$(awk '/SOURCE_PATH/{ print NR; exit }' ./rsh.sh)
     PP_LINE=$(awk '/PEM_PATH/{ print NR; exit }' ./config/config.sh)
 
     SP_LINE_ORG=$(awk '/SOURCE_PATH/{ print NR; exit }' ./setup.sh)
