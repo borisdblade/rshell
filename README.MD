@@ -5,7 +5,8 @@ It is useful when your instances are behind AWS Load Balancer.
 
 **RShell setup**
 
-## install pip3
+**`IF YOU HAVE PYTHON AND AWS SET UP ALREADY, SKIP TO STEP`**[#3](#3.deployment#)
+# 1. install pip3 #
 
 Mac:
 
@@ -15,7 +16,7 @@ Linux deb:
 
     sudo apt install python3
 
-##Install aws client
+# 2. Install aws client #
  
 Mac:
 
@@ -44,17 +45,22 @@ Export environment
 
      export AWS_CONFIG_FILE=$HOME/.aws/config
 
-## Deployment
-Download or clone project, and make main file executable
+# 3.Deployment #
+
+    Download or clone this project
+    
+And make main file executable
 
     sudo chmod +x rsh.sh
 
-## Setup RSH
+# 4.Setup RSH #
+
 Run the setup from the root of project directory
 
     sh setup.sh
 
-## Options
+# 5.Options #
+
 List instances
 
     rsh list
