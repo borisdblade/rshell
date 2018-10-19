@@ -5,7 +5,7 @@ It is useful when your instances are behind AWS Load Balancer.
 
 **RShell setup**
 
-**`IF YOU HAVE PYTHON AND AWS SET UP ALREADY, SKIP TO STEP`**[#3](#3.deployment#)
+**`IF YOU HAVE PYTHON AND AWS SET UP ALREADY, SKIP TO STEP`**[#3](#3deployment#)
 # 1. install pip3 #
 
 Mac:
