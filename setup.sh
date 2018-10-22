@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Colors
+GRN="\033[0;32m"
+# No color
+NC="\033[0m"
+
 SP_LINE=""
 PP_LINE=""
 
@@ -18,7 +23,7 @@ USER_PEM_PATH=""
 # Copy main script file to executables folder (SCRIPT_PATH)
 installScript()
 {
-    printf "Where do you want to install script:\n"
+    printf "${GRN}Where do you want to install script:${NC}\n"
     printf "1) /usr/local/bin/rsh   # default\n"
     printf "2) Enter custom path\n"
     read SCRIPT_PATH_INDEX
@@ -27,7 +32,7 @@ installScript()
     then
         SCRIPT_PATH="$SCRIPT_PATH_DEFAULT"
     else
-        printf "Enter script root path:\n"
+        printf "${GRN}Enter script root path:${NC} "
         read SCRIPT_PATH
     fi
 
@@ -42,7 +47,7 @@ addPemPath()
 
     if [ -z "$PEM_PATH" ]
     then
-        printf "Enter your .pem file path: "
+        printf "${GRN}Enter your .pem file path:${NC} "
         read PEM_PATH
         PEM_PATH="PEM_PATH=$PEM_PATH"
     else
@@ -84,7 +89,7 @@ defineConfigLines()
 # Setup steps
 runSetup()
 {
-    printf "Setting up RSH script...\n"
+    printf "${GRN}Setting up RSH script...${NC}\n"
 
     # Read config file, and find where important lines are
     defineConfigLines
@@ -101,7 +106,7 @@ runSetup()
 
 locatePemFile()
 {
-    printf "${GRN}Locating ${BS}.pem${BE} file...\n"
+    printf "${GRN}Locating ${BS}.pem${BE} file...${NC}\n"
 
     for item in $(cd ~; locate */*.pem)
     do
@@ -114,7 +119,7 @@ locatePemFile()
     # Ask for pem file
     if [ ${#PEM_ARRAY[@]} -eq 1 ]
     then
-        printf "None located.\n"
+        printf "${GRN}None located.${NC}\n"
         CHOSEN_PEM_INDEX=$((${#PEM_ARRAY[@]} - 1))
     else
         for choice in "${!PEM_ARRAY[@]}"
@@ -122,7 +127,7 @@ locatePemFile()
             printf "%s) %s\n" "$choice" "${PEM_ARRAY[$choice]}"
         done
 
-        printf "Choose .pem file location:\n"
+        printf "${GRN}Choose .pem file location:${NC} "
         read CHOSEN_PEM_INDEX
     fi
 
@@ -131,7 +136,7 @@ locatePemFile()
     # User selected to input custom path, record it
     if [ $CHOSEN_PEM_INDEX -eq $((${#PEM_ARRAY[@]} - 1)) ]
     then
-        printf "Type in the path you wish to use: "
+        printf "${GRN}Type in the path you wish to use:${NC} "
         read PEM_PATH
     else
         PEM_PATH="${PEM_ARRAY[$CHOSEN_PEM_INDEX]}"
