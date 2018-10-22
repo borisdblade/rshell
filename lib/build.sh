@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+OLD_PATH_QUESTION="Select path (num):"
+PATH_QUESTION="Select path (num):"
+
 # Unify commands
 unifyCommand()
 {
@@ -70,7 +73,7 @@ choosePath()
     local GROUPS=$2
 
     # Find path of all .git files where we have permission to read
-    FOUND_PATHS=$(ssh ubuntu@"$IP" -i ~/.ssh/aws-csa.pem -o ServerAliveInterval=50 "find /var -type d -name .git -prune 2>&1 | grep -v 'Permission denied'")
+    FOUND_PATHS=$(ssh ubuntu@"$IP" -i "$PEM_PATH" -o ServerAliveInterval="$SERVER_ALIVE_INTERVAL" "find /var -type d -name .git -prune 2>&1 | grep -v 'Permission denied'")
 
     # Loop them because of groups; can have multiple instances (ips)
     # Parse data to array
