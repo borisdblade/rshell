@@ -72,15 +72,13 @@ Connect:
 Run custom commands:
 
     rsh <instance_name> -custom="cd /var/www/example; touch hello.php;"
-
-Run predefined commands:
-
-    rsh <instance_name> -git
     
 Predefined commands:
     
     -git        # git pull
     -composer   # composer install; composer du
+    -rb-cms-update
+    
 And more to come!
 
 **THAT IS IT! ENJOY...**
