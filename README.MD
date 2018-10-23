@@ -75,9 +75,9 @@ Run custom commands:
     
 Predefined commands:
     
-    -git        # git pull
-    -composer   # composer install; composer du
-    -rb-cms-update
+    -git            # git pull
+    -composer       # composer install; composer du
+    -rb-cms-update  # updates rb cms on aws s3
     
 And more to come!
 
