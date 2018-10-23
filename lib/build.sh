@@ -236,6 +236,20 @@ run()
     connect $1 $2
 }
 
+# Method used to only run shorthand commands
+checkExecuteOnly()
+{
+    for var in $ARGS
+    do
+        case $var in
+            *rb-cms-update*)
+                executeOnly "$var"
+                exit 1
+            ;;
+        esac
+    done
+}
+
 
 # ------------------------------- #
 # -------- Init Method ---------- #
@@ -251,6 +265,10 @@ init()
     # 2 => yes
     local GROUP=1
     local CONNECT_ONLY=1
+
+    # Check if we are trying only to execute a command, like update rb cms on aws S3
+    # Script should exit if we execute anything here
+    checkExecuteOnly
 
     # Are we passing custom command?
     checkCustomCommand

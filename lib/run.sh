@@ -69,3 +69,19 @@ connect()
         exit 1
     fi
 }
+
+executeOnly()
+{
+    case "$1" in
+        rb-cms-update)
+            printf "${GRN}Running aws s3 update for rentbits.com cms...${NC}\n"
+            OUTPUT=$(aws s3 cp dist s3://rentbits-cms --recursive)
+            printf "$OUTPUT"
+        ;;
+        *)
+        ;;
+    esac
+
+    printf "${GRN}Done!${NC}\n"
+    exit 1
+}
